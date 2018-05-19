@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
 
 class sourceTemp extends Component {
     constructor(props){
@@ -11,26 +10,21 @@ class sourceTemp extends Component {
        
         return (
             
-                <div className="list-group">
+                <div className="row">
                  
                 { this.props.srcData && 
                 this.props.srcData.map(mov => 
-                    <div id={mov.publishedAt} key ={mov.publishedAt}>
                    
-                    <div>
-                        <img style={imgStyle} src={`${mov.urlToImage}`} alt=''/> 
-                    </div>   
-                        <div>
-                            <div>
-                                <span>{mov.author}</span>
-                            </div>
+                    <div className="col-md-6"  id={mov.publishedAt} key ={mov.publishedAt}>
+                        <div className="card">
+                                <img style={imgStyle} className="card-img-top" src={`${mov.urlToImage}`} alt="Card image cap"/>
+                                <div className="card-body">
+                                    <h5 className="card-title">{mov.author}</h5>
+                                    <p className="card-text">{mov.title}</p>
+                                    <a href={`/news/${mov.source.id}`} className="btn btn-primary">{mov.source.name}</a>
+                                </div>
                         </div>
-                            <div>
-                                <h4>{mov.title}</h4>
-                            </div>
-                           
-                        </div>
-                    
+                   </div>
                 )}
             </div>
            
@@ -39,7 +33,7 @@ class sourceTemp extends Component {
 }
 
 const imgStyle = {
-    height: '150px'
+    height: '250px'
     
   };
 

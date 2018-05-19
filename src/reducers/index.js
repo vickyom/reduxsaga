@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
 
-import data from "./data";
+import newsList from "./newsRed";
 import sourceList from "./sourceRed";
-
+import  popularMoviesRed  from "./popularMoviesRed";
 
 export default combineReducers({
-  data,
-  sourceList
+  newsList,
+  sourceList,
+  popularMoviesRed
 });

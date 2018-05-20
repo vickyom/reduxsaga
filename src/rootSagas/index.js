@@ -1,10 +1,12 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { takeLatest } from "redux-saga/effects";
 
-import { REQUEST_API_DATA,REQUEST_SOURCE_DATA,REQUEST_POPULAR_DATA  } from "../actionType";
-import { fetchData , fetchSourceData} from "../helper/api";
+import { REQUEST_API_DATA,REQUEST_SOURCE_DATA,REQUEST_POPULAR_DATA,REQUEST_MOVDET_DATA,REQUEST_FILTER_DATA  } from "../actionType";
 import { getApiData } from "./getApiData";
 import { getSourceData } from "./getSourceData";
 import { getPopularData } from "./getPopularData";
+import { getMovieDet } from "./getMovieDet";
+import { getFilterData } from "./getFilterData";
+
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 
@@ -16,9 +18,11 @@ import { getPopularData } from "./getPopularData";
   dispatched while a fetch is already pending, that pending fetch is cancelled
   and only the latest one will be run.
 */
-export default function* mySaga() {
+export default function* mySaga(getState) {
   console.log("Root Saga  called");
   yield takeLatest(REQUEST_API_DATA, getApiData);
   yield takeLatest(REQUEST_SOURCE_DATA, getSourceData);
   yield takeLatest(REQUEST_POPULAR_DATA, getPopularData);
+  yield takeLatest(REQUEST_MOVDET_DATA, getMovieDet);
+  yield takeLatest(REQUEST_FILTER_DATA, getFilterData);
 }

@@ -3,6 +3,7 @@ import HomePage  from '../components/Home';
 import NewsContainer from "./newsContainer";
 import sourceContainer from "./sourceContainer";
 import popularMovies from "./popularMovies";
+import moviesDetails from "./moviesDetails";
 import Header from '../components/Header'
 // import routes from '../routes';  
 import {
@@ -16,7 +17,7 @@ class App extends React.Component {
     console.log("inside app")
    console.log(this.props.children);
     return (
-      <div className="container-fluid">
+      <div>
           <div>
                <Router>
                 <Switch>
@@ -26,6 +27,7 @@ class App extends React.Component {
                     <Route path="/news" exact component={NewsContainer} />
                     <Route path="/news/:source" component={sourceContainer}/>
                     <Route path="/movies" exact component={popularMovies} />
+                    <Route path="/movies/:movID" exact component={moviesDetails} />
                   </div>
                   </Switch>
                 </Router>

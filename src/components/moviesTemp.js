@@ -6,11 +6,9 @@ constructor(props){
     }
     
     render() {
-        console.log("moviesTemp ==  ");
-       console.log("moviesTemp ==  " , this.props);
         return (
-            
                 <div className="row">
+                           
                 { this.props.pmvData && 
                 this.props.pmvData.map(mov => 
                     <div className="col-md-4" id={mov.publishedAt} key ={mov.publishedAt}>

@@ -5,7 +5,7 @@ class Header extends React.Component {
   render() {
   
       return (
-        <div className="navbar">
+        <div className="navbar navbar-dark bg-dark pd-10">
             <nav>
             <Link to="/" >Home | </Link>
             <Link to="/news" >News | </Link>

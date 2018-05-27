@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => <div>home
+export default () => <div>
+    Home Page
 
-     <li>
-     <Link to="/news"><button>Show the List</button></Link>
-          </li>
 </div>;

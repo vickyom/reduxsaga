@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 class Header extends React.Component {
   render() {
   
       return (
-        <div className="navbar navbar-dark bg-dark pd-10">
+        <div className="navbar navbar-dark bg-primary">
             <nav>
-            <Link to="/" >Home | </Link>
-            <Link to="/news" >News | </Link>
-            <Link to="/movies" >Moies | </Link>
+            <a className="text-body" href="/" >Home | </a>
+            <a className="text-body" href="/news" >News | </a>
+            <a className="text-body" href="/movies" >Moies | </a>
             </nav>
         </div>
       )

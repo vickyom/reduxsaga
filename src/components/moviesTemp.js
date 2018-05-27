@@ -8,10 +8,9 @@ constructor(props){
     render() {
         return (
                 <div className="row">
-                           
                 { this.props.pmvData && 
                 this.props.pmvData.map(mov => 
-                    <div className="col-md-4" id={mov.publishedAt} key ={mov.publishedAt}>
+                    <div key={mov.id} className="col-md-3 p-2 mb-3" id={mov.publishedAt} key ={mov.publishedAt}>
                         <div className="card">
                                 <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`} alt="Card image cap"/>
                                 <div className="card-body">
@@ -21,7 +20,6 @@ constructor(props){
                                 </div>
                         </div>
                    </div>
-   
                 )}
             </div>
            

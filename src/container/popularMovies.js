@@ -8,8 +8,17 @@ class popularMovies extends Component {
     componentDidMount() {
         this.props.fetchPopularData();
     }
+    constructor(props){
+        super(props)
+        this.handleChange = this.handleChange.bind(this)
+     }
+    handleChange(data){
+        console.log("handleChange - -  ",this.props);
+        this.props.fetchSearchData(data);
+        // this.props.dispatch({type: 'REQUEST_SEARCH_DATA',searchText:data.toLowerCase()});
+    }
     render() {
-        console.log('mapStateToProps - - render ', this.props.PMData);
+        console.log('mapStateToProps - - render ', this.props);
         return (
             <div> 
             <div className="row mt-2 mb-2 p-2 border bg-info text-white">
@@ -21,21 +30,15 @@ class popularMovies extends Component {
                             <option value="RH">Rating Heigh</option>
                         </select>
                     </div>
-                {/* <SearchBox SearchReq={this.handleChange} SearchData={this.props.PMData}/>    */}
                 <div className="col-md-4"></div>
                      <div className="col-md-4">
-						<form action="#" method="get">
-							<div className="input-group">
-								<input onChange={(e) => this.props.handleChange(e)}  className="form-control" id="system-search" name="q" placeholder="Search for" required=""/>
-							</div>
-						</form>
-                        <SearchBox SearchData={this.props.SAdata}/>  
+					    <SearchBox SearchReq={this.handleChange} SearchData={this.props.SAdata}/>   
 					</div>
                 </div>
-                <div>    
+                <div>
                   <MoviesTemp pmvData={this.props.PMData} />
-                </div>    
-             </div>       
+                </div>
+             </div>
         );
     }
 }
@@ -47,15 +50,12 @@ function mapDispatchToProps(dispatch) {
             return dispatch({type: 'REQUEST_POPULAR_DATA'});
         },
         filterData: function(data) {
-           
-            //  put({type: 'REQUEST_FILTER_DATA', payload: data.target.value });
             return dispatch({type: 'REQUEST_FILTER_DATA',filter:data.target.value});
         },
-        handleChange: function(data) {
-            console.log("handleChange - -  ",data.target.value.toLowerCase());
-            //  put({type: 'REQUEST_FILTER_DATA', payload: data.target.value });
-            return dispatch({type: 'REQUEST_SEARCH_DATA',searchText:data.target.value.toLowerCase()});
+        fetchSearchData: function(data) {
+          return dispatch({type: 'REQUEST_SEARCH_DATA',searchText:data.toLowerCase()});
         },
+        
     };
 }
 

@@ -10,7 +10,7 @@ import { getSearch } from "./getSearch";
 
 
 
-// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+// worker Saga: will be fired on REQUEST_API_DATA actions
 
 /*
   Alternatively you may use takeLatest.

@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 
 class searchBox extends Component {
-    // constructor(props){
-    //     super(props)
-    //     this.handleChange = this.handleChange.bind(this)
-    // }
-    // handleChange(events){
-    //     console.log(this.props);
-    //     this.props.SearchReq(events.target.value)
-    // }
+    constructor(props){
+        super(props)
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange(events){
+        console.log(this.props);
+        this.props.SearchReq(events.target.value)
+    }
     render() {
-        console.log("searchBox", this.props.SearchData)
+        console.log("searchBox", this.props.searchBox)
         // if(!this.props.SearchData){
         //     return <div>Loading ..... </div>
         // }
         return (
            
-        <div className="col-sm-4 col-md-4 col-md-offset-4" style={searchStyle}>
-                    {/* <div className="span3 side-by-side clearfix offset4">
-						<form action="#" method="get">
-							<div className="input-group">
-								<input onChange={(e) => this.handleChange(e)}  className="form-control" id="system-search" name="q" placeholder="Search for" required=""/>
-								<span className="input-group-btn">
-									<button type="submit" className="btn btn-default" data-original-title="" title=""><i class="glyphicon glyphicon-search"></i></button>
-								</span>
-							</div>
-						</form>
-					</div> */}
+        <div style={searchStyle}>
+                  
+        <form action="#" method="get">
+            <div className="input-group">
+                <input onChange={(e) => this.handleChange(e)}  className="form-control" name="q" placeholder="Search for"/>
+            </div>
+        </form>
+					
 
                 <ul id="autolist" className="list-group">
                 { this.props.SearchData && 

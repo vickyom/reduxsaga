@@ -31,9 +31,5 @@ class newsTemp extends Component {
     }
 }
 
-const imgStyle = {
-    height: '150px'
-    
-  };
 
 export default newsTemp; 

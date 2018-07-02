@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 
 class reviewTemp extends Component {
     render() {
-        console.log("reviewTemp  -- - >",this.props)
         return (
               
-            <div className="row">
+            <div>
+                <h4 className="font-weight-normal text-center mt-2">
+                    User Review
+                </h4>
             { this.props.RVData.results && 
             this.props.RVData.results.map(mrvData => 
-                <div className="row mb-2 border-bottom" id={mrvData.id} key ={mrvData.id}>
-                    <div className="col-md-3">
-                    {/* <span className="glyphicon glyphicon-user">User Image </span> */}
-                    <span >{mrvData.author}</span>
+                <div className="row shadow-sm p-3 mb-4 bg-white rounded" id={mrvData.id} key ={mrvData.id}>
+                    <div className="col-md-2">
+                    <span className="small">{mrvData.author}</span>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-10">
                         
-                        <p>{mrvData.content}</p>
-                        <a>{mrvData.url}</a>
+                        <p className="small">{mrvData.content}</p>
+                        
                     </div>
                </div>
 

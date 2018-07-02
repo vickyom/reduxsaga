@@ -68,6 +68,19 @@ export const fetchSearchResults = async (query) => {
     console.log(e);
   }
 };
+export const fetchSimilarMovies = async (query) => {
+  try {
+   
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${query}/similar?api_key=e2df83ac84acb977bef0b1fd007c11ad&language=en-US&page=1`);
+      // await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      const data = await response.json();
+      return data;
+    
+  	
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 // https://api.themoviedb.org/3/movie/${source}/reviews?api_key=e2df83ac84acb977bef0b1fd007c11ad&language=en-US&page=1
 // https://api.themoviedb.org/3/review/5adff809c3a3683daa00ad3d?api_key=e2df83ac84acb977bef0b1fd007c11ad

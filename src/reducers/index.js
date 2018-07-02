@@ -6,6 +6,7 @@ import  popularMoviesRed  from "./popularMoviesRed";
 import movDetRed  from "./movDetRed";
 import filterRed  from "./filterRed";
 import searchRed  from "./searchRed";
+import similarMov  from "./similarMov";
 
 export default combineReducers({
   newsList,
@@ -13,5 +14,6 @@ export default combineReducers({
   popularMoviesRed,
   movDetRed,
   filterRed,
-  searchRed
+  searchRed,
+  similarMov
 });

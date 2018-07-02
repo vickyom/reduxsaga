@@ -10,14 +10,13 @@ class moviesDetails extends Component {
         return (
             <div>
                 <h1>{this.props.match.params.source}</h1>
-                <MoviesDetailsTemp MDData={this.props.MVDData} />
+                <MoviesDetailsTemp MSData= {this.props.SMMovieData} MDData={this.props.MVDData} />
             </div>
         );
     }
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
-  
     return {
         getMovieDet: function() {
             return dispatch({
@@ -29,9 +28,10 @@ function mapDispatchToProps(dispatch, ownProps) {
 }
 
 function mapStateToProps(state) {
-    console.log(' -- -- MovDetRed  mapStateToProps = = = ', state.movDetRed.moviesDetails);
+    console.log(' -- -- MovDetRed  mapStateToProps = = = ', state);
     return {
-        MVDData: state.movDetRed.moviesDetails
+        MVDData: state.movDetRed.moviesDetails,
+        SMMovieData: state.similarMov.simMovData
     };
 }
 

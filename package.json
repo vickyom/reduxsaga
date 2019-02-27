@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
+  "engines": {
+    "node": "8.7.0",
+    "npm": "5.4.2"
+  },
   "devDependencies": {
     "react-scripts": "1.0.10"
   },

@@ -2,6 +2,7 @@
   "name": "cra-redux-saga",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "devDependencies": {
     "react-scripts": "1.0.10"
   },

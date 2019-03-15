@@ -5,17 +5,20 @@ import sourceContainer from "./sourceContainer";
 import popularMovies from "./popularMovies";
 import moviesDetails from "./moviesDetails";
 import Header from '../components/Header'
-// import routes from '../routes';  
+// import routes from '../routes';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from 'react-router-dom';
-class App extends React.Component {  
+
+/* eslint react/prop-types: 0 */
+class App extends React.Component {
+
   render() {
     console.log("inside app")
-   console.log(this.props.children);
+
     return (
       <div>
           <div>
@@ -31,9 +34,9 @@ class App extends React.Component {
                   </div>
                   </Switch>
                 </Router>
-                
+
             </div>
-       
+
       </div>
     )
   }

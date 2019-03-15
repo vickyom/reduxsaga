@@ -45,7 +45,7 @@ class moviesDetailsTemp extends Component {
       }
   }
     rateHover() {
-      
+
         this.setState({ isRatHovered: !this.state.isRatHovered });
     }
     getRating(e) {
@@ -60,7 +60,7 @@ class moviesDetailsTemp extends Component {
         let arr = [];
         for (let i = 1; i <= 5; i++) {
             arr.push(
-                <span data-value={i} onClick={event => this.getRating(i)}>
+                <span key={i} data-value={i} onClick={event => this.getRating(i)}>
                     <i
                         onMouseOut={() => this.hoverOff(i)}
                         onMouseOver={event => this.hoverOn(i)}
@@ -73,18 +73,14 @@ class moviesDetailsTemp extends Component {
     }
     getImgHoverClass(e){
         return e == this.state.isImgHovered ? 'card-body overlay' : 'none';
-        // return e == 88751 ? 'card-body overlay' : '';
     }
     hoverImgOn(e) {
-        console.log("hoverImgOn ===" , e == 88751);
-        
         this.setState({ isImgHovered: e});
-       
+
     }
     hoverImgOff() {
-        console.log("hoverImgOff ++++" ,this.state.isImgHovered);
         this.setState({ isImgHovered: '' });
-        
+
     }
     renderCastListing() {
 		return (
@@ -114,11 +110,11 @@ class moviesDetailsTemp extends Component {
                                 </li>
                             ))}
                     </ul>
-            </div> 
+            </div>
 		)
     }
     renderSmMovies() {
-        // className="card-body overlay" 
+        // className="card-body overlay"
         // style={{display:(this.state.isImgHovered) ? 'block' : 'none'}}
         if(this.props.MSData.results && this.props.MSData.results.length){
 		return (
@@ -142,7 +138,7 @@ class moviesDetailsTemp extends Component {
                             </div>
                             ))}
                     </div>
-            </div> 
+            </div>
         )
     }else{
 
@@ -150,7 +146,7 @@ class moviesDetailsTemp extends Component {
         }
 	}
     render() {
-       
+
        (this.state.isRatHovered) ? 'block' : 'none'
         if (!this.props.MDData.data) {
             return <div>Loading ..... </div>;
@@ -221,7 +217,7 @@ class moviesDetailsTemp extends Component {
                 <span style={hr} />
                 <div className="col-md-12 mt-2 ">
                 {this.props.MDData.Reviewdata.results.length > 0 && <ReviewTemp RVData={this.props.MDData.Reviewdata} /> }
-                    
+
                 </div>
 
                 <Modal
@@ -255,7 +251,7 @@ const name = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize:'12px'
-    
+
   };
-  
+
 export default moviesDetailsTemp;

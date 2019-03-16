@@ -7,9 +7,6 @@
     "node": "8.7.0",
     "npm": "6.0.0"
   },
-  "devDependencies": {
-    "react-scripts": "1.0.10"
-  },
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -20,6 +17,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.15.6",
     "serve": "^9.4.0",
+    "react-scripts": "1.0.10"
     "slick-carousel": "^1.8.1"
   },
   "scripts": {

@@ -32,16 +32,16 @@ class popularMovies extends Component {
             autoplaySpeed: 2000,
             pauseOnHover: true
           };
-          console.log(this.props.PMData);
-        { this.props.PMData && this.props.PMData.map(mov =>
-            bannerArr.push({
-                "id"        : mov.id,
-                "ImgSrc"    : `https://image.tmdb.org/t/p/w500/${mov.backdrop_path}`,
-                "alt"       : mov.title,
-                "href"      : `/movies/${mov.id}`
-            })
-        )
-        }
+
+            this.props.PMData && this.props.PMData.map(mov =>
+                bannerArr.push({
+                    "id"        : mov.id,
+                    "ImgSrc"    : `https://image.tmdb.org/t/p/w500/${mov.backdrop_path}`,
+                    "alt"       : mov.title,
+                    "href"      : `/movies/${mov.id}`
+                })
+            )
+
         return (
             <div>
                 <div className="row mt-2 mb-2 p-2 border bg-info text-white">
@@ -70,7 +70,6 @@ class popularMovies extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-
     return {
         fetchPopularData: function() {
             return dispatch({type: 'REQUEST_POPULAR_DATA'});
@@ -79,26 +78,24 @@ function mapDispatchToProps(dispatch) {
             return dispatch({type: 'REQUEST_FILTER_DATA',filter:data.target.value});
         },
         fetchSearchData: function(data) {
-          return dispatch({type: 'REQUEST_SEARCH_DATA',searchText:data.toLowerCase()});
+            return dispatch({type: 'REQUEST_SEARCH_DATA',searchText:data.toLowerCase()});
         },
-
     };
 }
 
 function mapStateToProps(state) {
-    console.log("mapStateToProps = = =  " ,state);
     let sortData = [];
     if(state.filterRed.filterType == 'RL'){
         sortData =  state.popularMoviesRed.popMovies.slice().sort((first, second) => {
         return parseFloat(first.vote_average) - parseFloat(second.vote_average)
     })
-}else if(state.filterRed.filterType == 'RH'){
-        sortData =  state.popularMoviesRed.popMovies.slice().sort((first, second) => {
-        return parseFloat(second.vote_average) - parseFloat(first.vote_average)
-    })
-}else{
-    sortData =  state.popularMoviesRed.popMovies
-}
+    }else if(state.filterRed.filterType == 'RH'){
+            sortData =  state.popularMoviesRed.popMovies.slice().sort((first, second) => {
+            return parseFloat(second.vote_average) - parseFloat(first.vote_average)
+        })
+    }else{
+        sortData =  state.popularMoviesRed.popMovies
+    }
 
     return {
         PMData: sortData,

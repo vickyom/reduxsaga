@@ -1,12 +1,13 @@
 import { takeLatest,call,fork } from "redux-saga/effects";
 
-import { REQUEST_API_DATA,REQUEST_SOURCE_DATA,REQUEST_POPULAR_DATA,REQUEST_MOVDET_DATA,REQUEST_FILTER_DATA,REQUEST_SEARCH_DATA  } from "../actionType";
+import { REQUEST_API_DATA,REQUEST_SOURCE_DATA,REQUEST_POPULAR_DATA,REQUEST_MOVDET_DATA,REQUEST_FILTER_DATA,REQUEST_HOME_DATA  } from "../actionType";
 import { getApiData } from "./getApiData";
 import { getSourceData } from "./getSourceData";
 import { getPopularData } from "./getPopularData";
 import { getMovieDet } from "./getMovieDet";
 import { getFilterData } from "./getFilterData";
 import { getSearch } from "./getSearch";
+import { getHome } from "./getHomeData";
 
 
 
@@ -26,7 +27,7 @@ export default function* mySaga() {
   yield takeLatest(REQUEST_POPULAR_DATA, getPopularData);
   yield takeLatest(REQUEST_MOVDET_DATA, getMovieDet);
   yield takeLatest(REQUEST_FILTER_DATA, getFilterData);
-  // yield takeLatest(REQUEST_SEARCH_DATA, getSearch);
+  yield takeLatest(REQUEST_HOME_DATA, getHome);
   yield fork(getSearch)
-  
+
 }

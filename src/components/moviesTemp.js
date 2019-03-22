@@ -15,9 +15,15 @@ constructor(props){
                             <div className="card">
                                 <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`} alt="Card image cap"/>
                                 <div className="card-body">
-                                    <h6 style={name} className="card-title name">{mov.title}</h6>
-                                    <i className="fas fa-user"></i> <span>{mov.vote_count}</span>
-                                    <p className="card-text">{mov.release_date}</p>
+                                    <h6 style={name} className="card-title name ">{mov.title}</h6>
+                                        <div className="row">
+                                            <div className="col-4 metadata">
+                                            <small><i className="fa fa-star" aria-hidden="true"></i>
+                                                <span> {mov.vote_average}/10</span></small>
+                                            </div>
+                                            <div className="col-8 metadata"><small>Adventure. Sci-Fi</small></div>
+                                        </div>
+                                        <p className="card-text"><small><i className="fa fa-calendar" aria-hidden="true"> </i> {new Date(mov.release_date).toDateString().substring(0,11)}</small></p>
                                 </div>
                             </div>
                         </a>

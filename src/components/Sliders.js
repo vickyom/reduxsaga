@@ -6,7 +6,7 @@ export default class Sliders extends Component {
   render() {
     console.log("---- this.props.sliderData - - -- ");
     console.log(this.props);
-    let imgw = this.props.Imgwidth;
+    let imgw = this.props.Imgwidth && this.props.Imgwidth || this.props.ImgHeight ;
     return (
       <div>
         <Slider {...this.props.setting}>
@@ -14,7 +14,9 @@ export default class Sliders extends Component {
             return (
               <div key={slide.id}>
                 <img id={slide.id} style={{width: `${imgw}`}} src={slide.ImgSrc} alt='image'/>
+                <div>{slide.Title || ""}</div>
               </div>
+
             );
           })}
         </Slider>

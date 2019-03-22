@@ -7,18 +7,18 @@ import { fetchMoviesDetails,fetchMoviesReviews,fetchSimilarMovies} from "../help
 
 export function* getMovieDet(action) {
   try {
-    
+
     // do api call
     const data = yield call(fetchMoviesDetails,action.param);
     const Reviewdata = yield call(fetchMoviesReviews,action.param);
-    console.log("Reviewdata PUT - - -  ");
+
     yield put({type: 'RECEIVE_MOVDET_DATA', payload: {data, Reviewdata} });
     yield delay(50000);
     const getSimilarMov = yield call(fetchSimilarMovies,action.param);
-    console.log("getSimilarMov - - -  " );
-    
+
+
     yield put({type: 'RECEIVE_SIMMOV_DATA', getSimilarMov });
-    
+
   } catch (e) {
     console.log(e);
   }

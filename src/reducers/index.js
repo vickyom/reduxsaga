@@ -7,6 +7,7 @@ import movDetRed  from "./movDetRed";
 import filterRed  from "./filterRed";
 import searchRed  from "./searchRed";
 import similarMov  from "./similarMov";
+import homeList  from "./homeRed";
 
 export default combineReducers({
   newsList,
@@ -15,5 +16,6 @@ export default combineReducers({
   movDetRed,
   filterRed,
   searchRed,
-  similarMov
+  similarMov,
+  homeList
 });

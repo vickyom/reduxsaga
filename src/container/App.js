@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import HomePage  from '../components/Home';
+import HomePage  from './homeContainer';
 import NewsContainer from "./newsContainer";
 import sourceContainer from "./sourceContainer";
 import popularMovies from "./popularMovies";

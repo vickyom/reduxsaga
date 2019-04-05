@@ -1,10 +1,6 @@
 import { RECEIVE_HOME_DATA,RECEIVE_PERSON_DATA,RECEIVE_TV_DATA } from "../actionType";
 
 export default (state = {homeList:[],tvList:[],personList:[]}, {type,data }) => {
-  console.log(type)
-  console.log(data)
-
-
   switch (type) {
     case RECEIVE_HOME_DATA:
       return {  ...state, homeList: data.results};

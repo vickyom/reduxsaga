@@ -6,16 +6,18 @@ import { fetchHomeResults } from "../helper/api";
 export function* getHome() {
   try {
 
-    const [tvData,personData,allData] = yield all([
+    const [allData,moviesData,tvData,personData] = yield all([
+      call(fetchHomeResults,'all'),
+      call(fetchHomeResults,'movies'),
       call(fetchHomeResults,'tv'),
       call(fetchHomeResults,'person'),
-      call(fetchHomeResults,'all')
+
     ])
-    console.log("personData - - >",personData)
-    console.log("tvData - - >",tvData)
+
     yield put({type: 'RECEIVE_HOME_DATA',  data:allData});
     yield put({type: 'RECEIVE_TV_DATA', data:tvData});
     yield put({type: 'RECEIVE_PERSON_DATA', data:personData});
+    yield put({type: 'RECEIVE_MOVIES_DATA', data:moviesData});
 
 
 

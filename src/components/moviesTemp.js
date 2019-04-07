@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { LazyImage } from "react-lazy-images";
 class moviesTemp extends Component {
 constructor(props){
         super(props)
@@ -13,7 +13,16 @@ constructor(props){
                     <div key={mov.id} className="col-md-3 p-2 mb-3" id={mov.publishedAt} key ={mov.publishedAt}>
                         <a href={`/movies/${mov.id}`}>
                             <div className="card">
-                                <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`} alt="Card image cap"/>
+                                {/* <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`} alt="Card image cap"/> */}
+                                <LazyImage
+                                    src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                                    alt="Image"
+                                    className='card-img-top'
+                                    placeholder={({ imageProps, ref }) => (
+                                        <img ref={ref} src={`http://placehold.it/320X180`} alt={mov.alt} />
+                                    )}
+                                    actual={({ imageProps }) => <img {...imageProps} />}
+                                    />
                                 <div className="card-body">
                                     <h6 style={name} className="card-title name ">{mov.title}</h6>
                                         <div className="row">
